@@ -1,0 +1,193 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 容器样式 */
+.container {
+    display: flex;
+    flex: 1;
+    background-color: #f4f4f4; /* 确保页面整体背景颜色一致 */
+}
+
+/* 固定导航栏，使用 vw 单位来设置宽度 */
+.navbar {
+    font-family: "Source Serif 4", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    width: 15vw; /* 宽度为视口宽度的 15% */
+    background-color: #252525; /* 导航栏背景色 */
+    color: #ffffff; /* 文字颜色 */
+    position: fixed; /* 固定定位 */
+    top: 0; /* 距页面顶部为 0 */
+    bottom: 0; /* 填满整个左侧高度 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 垂直居中 */
+    align-items: flex-end; /* 水平方向靠右对齐 */
+    padding-right: 10px; /* 右侧内边距 */
+}
+
+/* 导航栏文字样式 */
+.navbar a {
+    color: #ffffff; /* 链接颜色 */
+    text-decoration: none; /* 去掉下划线 */
+    margin: 10px 0; /* 上下间距 */
+    padding: 5px;
+    border-radius: 5px;
+    text-align: right; /* 文本右对齐 */
+    font-size: 1.1vw;  /* 使用 vw 单位，根据视口宽度设置字体大小 */
+}
+
+/* 悬停效果：文字颜色变化 */
+.navbar a:hover {
+    color: #8c8c8c; /* 鼠标悬停时文字变为黄色 */
+}
+
+
+/* 主内容区样式 */
+.content {
+    flex: 1;
+    display: flex;
+    justify-content: center;   /* 水平居中 */
+    align-items: center;       /* 垂直居中 */
+    background-color: #f4f4f4;
+    padding: 0.2vw;
+    margin-left: 13vw;          /* 留出左侧导航栏空间 */
+}
+
+/* 默认设置 */
+.large-screen-img {
+    display: block;            /* 大屏幕时显示 */
+    width: 100%;               /* 宽度占满父容器 */
+    height: auto;              /* 高度自适应 */
+    object-fit: contain;       /* 保持图片比例，填满容器 */
+}
+
+.small-screen-img {
+    display: none;             /* 默认隐藏小屏幕图片 */
+    width: 100%;               /* 宽度占满父容器 */
+    height: auto;              /* 高度自适应 */
+}
+/* 菜单按钮样式 */
+.menu-button {
+    background-color: #252525;
+    color: #ffffff;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px 15px;
+    display: block; /* 确保按钮始终显示 */
+}
+
+/* 全屏菜单样式 */
+.fullscreen-menu {
+    position: fixed;
+    top: 80px; /* 顶部导航栏下方 */
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 80px); /* 减去顶部导航栏的高度 */
+    background-color: #ffffff;
+    z-index: 1000;
+    display: flex; /* 设置为flex，确保菜单内容居中 */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    opacity: 0;  /* 初始时透明度为 0 */
+    pointer-events: none;  /* 禁止在不可见时点击 */
+    transition: opacity 0.5s ease, pointer-events 0s linear 0.5s;  /* 增加pointer-events的延迟 */
+}
+
+
+/* 显示菜单时 */
+.fullscreen-menu.show {
+    opacity: 1; /* 透明度设置为 1 */
+    pointer-events: auto;  /* 允许点击 */
+}
+
+/* 关闭按钮样式 */
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #252525;
+    cursor: pointer;
+}
+
+/* 更新全屏菜单中的链接样式 */
+.fullscreen-menu .menu-links a {
+    font-family: "Source Serif 4", serif; /* 确保字体与左侧导航栏一致 */
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 24px; /* 字体大小与导航栏一致 */
+    text-decoration: none;
+    color: #252525;
+    margin: 10px 0;
+    transition: color 0.3s;
+    text-align: center; /* 文字居中对齐 */
+}
+
+/* 菜单链接的悬停效果 */
+.fullscreen-menu .menu-links a:hover {
+    color: #8c8c8c;
+}
+
+.fullscreen-menu .menu-links {
+    display: flex;
+    flex-direction: column; /* 竖向排列 */
+    justify-content: center;
+    align-items: center; /* 居中对齐 */
+    width: 100%; /* 宽度占满父容器 */
+}
+
+/* 媒体查询：适应小屏幕（例如手机） */
+@media (max-width: 800px) {
+    .navbar {
+        display: none; /* 隐藏左侧导航栏 */
+    }
+
+    .menu-button {
+        display: block; /* 始终显示菜单按钮 */
+    }
+
+    .large-screen-img {
+        display: none; /* 隐藏大屏幕图片 */
+    }
+
+    .small-screen-img {
+        display: block; /* 显示小屏幕图片 */
+    }
+
+    .content {
+        margin-left: 0; /* 移除原来给导航栏的左边距 */
+        margin-top: 80px; /* 内容区下移，确保顶部导航栏不遮挡 */
+    }
+
+    .top-navbar {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        background-color: #252525; /* 背景颜色 */
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 16px 10px;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+    }
+
+    /* 更改菜单栏文字大小，适配小屏幕 */
+    .menu-links a {
+        font-size: 5vw;  /* 让字体大小根据屏幕宽度变化 */
+    }
+}
