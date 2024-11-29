@@ -153,7 +153,10 @@ body {
     }
 
     .small-screen-img {
-        display: block; /* 显示小屏幕图片 */
+        display: block; /* 确保小屏幕图片显示 */
+        width: 100%;
+        height: auto;
+        margin-top: 1vh; /* 设置图片与顶部导航栏之间的距离 */
     }
 
     .content {
