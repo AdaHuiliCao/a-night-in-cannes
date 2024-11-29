@@ -153,11 +153,12 @@ body {
     }
 
     .small-screen-img {
-        display: block; /* 确保小屏幕图片显示 */
+        display: block; /* 确保小屏幕下图片显示 */
         width: 100%;
         height: auto;
-        margin-top: 1vh; /* 设置图片与顶部导航栏之间的距离 */
+        margin-top: 0; /* 去掉顶部额外间距 */
     }
+
 
     .content {
         margin-left: 0; /* 移除原来给导航栏的左边距 */
