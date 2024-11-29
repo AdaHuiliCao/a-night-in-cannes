@@ -93,28 +93,30 @@ body {
     display: block; /* 确保按钮始终显示 */
 }
 
+/* 确保 fullscreen-menu 在不同设备上始终居中 */
 .fullscreen-menu {
     position: fixed;
-    top: 80px; /* 导航栏高度下方 */
-    left: 0;
-    width: 100vw;
-    height: calc(100vh - 80px); /* 减去顶部导航栏的高度 */
+    top: 80px; /* 距离导航栏的下方，导航栏高度假设为80px */
+    left: 50%; /* 水平居中 */
+    transform: translateX(-50%); /* 水平居中 */
+    width: 100%; /* 宽度为 100% */
+    height: calc(100vh - 80px); /* 减去导航栏的高度，避免完全遮盖 */
     background-color: #ffffff;
     z-index: 1000;
-    display: flex; /* 设置为 flex */
+    display: flex;
     justify-content: center; /* 水平居中内容 */
     align-items: center; /* 垂直居中内容 */
     flex-direction: column; /* 让链接垂直排列 */
     padding: 20px;
-    opacity: 0;  /* 初始时透明度为 0 */
-    pointer-events: none;  /* 禁止在不可见时点击 */
-    transition: opacity 0.5s ease, pointer-events 0s linear 0.5s;  /* 增加pointer-events的延迟 */
+    opacity: 0; /* 初始时透明度为 0 */
+    pointer-events: none; /* 禁止在不可见时点击 */
+    transition: opacity 0.5s ease, pointer-events 0s linear 0.5s;
 }
 
 /* 显示菜单时 */
 .fullscreen-menu.show {
     opacity: 1; /* 透明度设置为 1 */
-    pointer-events: auto;  /* 允许点击 */
+    pointer-events: auto; /* 允许点击 */
 }
 
 /* 更新全屏菜单中的链接样式 */
@@ -143,6 +145,7 @@ body {
     align-items: center; /* 居中对齐 */
     width: 100%; /* 宽度占满父容器 */
 }
+
 
 /* 媒体查询：适应小屏幕（例如手机） */
 @media (max-width: 900px) {
@@ -188,6 +191,17 @@ body {
         padding: 16px 10px;
         z-index: 1000;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+    }
+
+    .fullscreen-menu {
+        top: 80px; /* 可以适当调整，避免导航栏遮挡 */
+        height: calc(100vh - 60px); /* 菜单高度为视口高度，减去导航栏的高度 */
+    }
+
+    /* 适配小屏幕时增大字体和间距 */
+    .fullscreen-menu .menu-links a {
+        font-size: 20px; /* 适配小屏幕 */
+        margin: 15px 0; /* 增加间距 */
     }
 
     /* 更改菜单栏文字大小，适配小屏幕 */
