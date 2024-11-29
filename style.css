@@ -195,7 +195,7 @@ body {
 
     .fullscreen-menu {
         top: 0; /* 小屏幕时，保持顶部开始 */
-        height: 100vh; /* 占满整个屏幕高度 */
+        height: calc(100vh - 60px); /* 占满整个屏幕高度 */
     }
 
     .fullscreen-menu .menu-links {
