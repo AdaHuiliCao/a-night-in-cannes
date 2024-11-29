@@ -154,17 +154,17 @@ body {
 
     .small-screen-img {
         display: block;
-        position: absolute; /* 改为 absolute */
-        top: 80px; /* 导航栏的高度 */
-        left: 0; /* 左对齐 */
         width: 100%; /* 占满屏幕宽度 */
         height: auto; /* 保持比例 */
         z-index: 1; /* 确保图片在导航栏后面或适当层级 */
+        margin-top: 80px; /* 留出顶部空间，避免遮挡菜单 */
     }
 
     .content {
         margin-left: 0; /* 移除原来给导航栏的左边距 */
         margin-top: 0; /* 确保内容不影响图片位置 */
+        overflow-y: auto; /* 允许内容垂直滚动 */
+        padding-top: 0; /* 移除顶部填充 */
     }
 
     .top-navbar {
