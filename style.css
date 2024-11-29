@@ -139,7 +139,7 @@ body {
 }
 
 /* 媒体查询：适应小屏幕（例如手机） */
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
     .navbar {
         display: none; /* 隐藏左侧导航栏 */
     }
