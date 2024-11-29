@@ -154,11 +154,12 @@ body {
 
     .small-screen-img {
         display: block;
-        position: fixed; /* 改为固定定位，紧贴导航栏 */
-        top: 80px; /* 与导航栏高度一致 */
-        width: 100%;
-        height: auto;
-        z-index: 999; /* 确保图片显示在导航栏后面的内容上方 */
+        position: absolute; /* 改为 absolute */
+        top: 80px; /* 导航栏的高度 */
+        left: 0; /* 左对齐 */
+        width: 100%; /* 占满屏幕宽度 */
+        height: auto; /* 保持比例 */
+        z-index: 1; /* 确保图片在导航栏后面或适当层级 */
     }
 
     .content {
