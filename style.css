@@ -53,26 +53,35 @@ body {
 .content {
     flex: 1;
     display: flex;
-    justify-content: center;   /* 水平居中 */
-    align-items: center;       /* 垂直居中 */
+    justify-content: center;
+    align-items: center;
     background-color: #f4f4f4;
     padding: 0.2vw;
-    margin-left: 13vw;          /* 留出左侧导航栏空间 */
+    margin-left: 13vw; /* 留出左侧导航栏空间 */
+    overflow-x: auto; /* 允许水平滑动 */
+    width: 100%;  /* 宽度自适应 */
 }
 
 /* 默认设置 */
 .large-screen-img {
-    display: block;            /* 大屏幕时显示 */
-    width: 100%;               /* 宽度占满父容器 */
-    height: auto;              /* 高度自适应 */
-    object-fit: contain;       /* 保持图片比例，填满容器 */
+    display: block; /* 大屏幕时显示 */
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-top: 0; /* 确保图片紧贴导航栏 */
 }
 
 .small-screen-img {
-    display: none;             /* 默认隐藏小屏幕图片 */
-    width: 100%;               /* 宽度占满父容器 */
-    height: auto;              /* 高度自适应 */
+    display: none;  /* 默认隐藏小屏幕图片 */
+    width: 100%;    /* 占满父容器 */
+    height: auto;   /* 高度自适应 */
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
+
 /* 菜单按钮样式 */
 .menu-button {
     background-color: #252525;
@@ -155,7 +164,7 @@ body {
     .small-screen-img {
         display: block;
         position: absolute; /* 让图片相对于页面绝对定位 */
-        top: 0; /* 紧贴导航栏 */
+        top: 80px; /* 为图片添加顶部间距，确保它不被导航栏遮挡 */
         left: 0;
         width: 100%; /* 占满屏幕宽度 */
         height: auto; /* 保持比例 */
