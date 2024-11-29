@@ -110,17 +110,6 @@ body {
     pointer-events: auto;  /* 允许点击 */
 }
 
-/* 关闭按钮样式 */
-.close-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: none;
-    border: none;
-    font-size: 30px;
-    color: #252525;
-    cursor: pointer;
-}
 
 /* 更新全屏菜单中的链接样式 */
 .fullscreen-menu .menu-links a {
