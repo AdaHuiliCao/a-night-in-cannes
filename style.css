@@ -58,9 +58,8 @@ body {
     background-color: #f4f4f4;
     padding: 0.2vw;
     margin-left: 13vw; /* 留出左侧导航栏空间 */
-    margin-top: 60px; /* 确保顶部导航栏高度（如有固定高度的情况） */
     overflow-x: auto; /* 允许水平滑动 */
-    width: calc(100% - 13vw);  /* 自动适应宽度，扣除导航栏 */
+    width: 100%;  /* 宽度自适应 */
 }
 
 /* 默认设置 */
@@ -97,41 +96,41 @@ body {
 /* 确保 fullscreen-menu 在不同设备上始终居中 */
 .fullscreen-menu {
     position: fixed;
-    top: 0; /* 距离顶部 */
-    left: 0;
-    width: 100%; /* 菜单栏占满宽度 */
-    height: 100vh; /* 菜单栏占满屏幕高度 */
+    top: 80px; /* 距离导航栏的下方，导航栏高度假设为80px */
+    left: 50%; /* 水平居中 */
+    transform: translateX(-50%); /* 水平居中 */
+    width: 100%; /* 宽度为 100% */
+    height: calc(100vh - 80px); /* 减去导航栏的高度，避免完全遮盖 */
     background-color: #ffffff;
     z-index: 1000;
-    display: flex; /* 使用 flex 布局 */
-    justify-content: center; /* 垂直方向居中 */
-    align-items: center; /* 水平方向居中 */
-    flex-direction: column; /* 内容垂直排列 */
+    display: flex;
+    justify-content: center; /* 水平居中内容 */
+    align-items: center; /* 垂直居中内容 */
+    flex-direction: column; /* 让链接垂直排列 */
     padding: 20px;
-    opacity: 0;
-    pointer-events: none;
+    opacity: 0; /* 初始时透明度为 0 */
+    pointer-events: none; /* 禁止在不可见时点击 */
     transition: opacity 0.5s ease, pointer-events 0s linear 0.5s;
 }
 
-/* 修改菜单栏中的链接样式 */
-.fullscreen-menu .menu-links {
-    display: flex;
-    flex-direction: column; /* 垂直排列 */
-    justify-content: center; /* 垂直居中 */
-    align-items: center; /* 水平居中 */
-    width: 100%; /* 占满宽度 */
-    height: 100%; /* 占满高度，确保可以精确定位 */
-    margin-top: -50px; /* 向上/向下微调文字位置 */
+/* 显示菜单时 */
+.fullscreen-menu.show {
+    opacity: 1; /* 透明度设置为 1 */
+    pointer-events: auto; /* 允许点击 */
 }
 
-/* 菜单文字的链接样式 */
+/* 更新全屏菜单中的链接样式 */
 .fullscreen-menu .menu-links a {
-    font-family: "Source Serif 4", serif; /* 确保字体一致 */
-    font-size: 24px; /* 字体大小 */
-    color: #252525;
-    margin: 10px 0; /* 上下间距 */
+    font-family: "Source Serif 4", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 24px; /* 字体大小与导航栏一致 */
     text-decoration: none;
+    color: #252525;
+    margin: 10px 0;
     transition: color 0.3s;
+    text-align: center; /* 文字居中对齐 */
 }
 
 /* 菜单链接的悬停效果 */
@@ -176,8 +175,8 @@ body {
 
     /* 允许内容区域根据需要滑动 */
     .content {
-        margin-left: 0; /* 小屏幕时取消左侧空隙 */
-        margin-top: 60px; /* 为顶部导航栏留出高度 */
+        margin-left: 0; /* 移除原来给导航栏的左边距 */
+        margin-top: 0; /* 确保内容不影响图片位置 */
     }
 
     .top-navbar {
@@ -195,16 +194,18 @@ body {
     }
 
     .fullscreen-menu {
-        top: 0; /* 小屏幕时，保持顶部开始 */
-        height: calc(100vh - 60px); /* 占满整个屏幕高度 */
+        top: 80px; /* 可以适当调整，避免导航栏遮挡 */
+        height: calc(100vh - 60px); /* 菜单高度为视口高度，减去导航栏的高度 */
     }
 
-    .fullscreen-menu .menu-links {
-        margin-top: 0; /* 重置顶部偏移 */
-        justify-content: center; /* 垂直居中 */
-    }
-
+    /* 适配小屏幕时增大字体和间距 */
     .fullscreen-menu .menu-links a {
-        font-size: 6vw; /* 根据屏幕宽度动态调整字体大小 */
+        font-size: 20px; /* 适配小屏幕 */
+        margin: 15px 0; /* 增加间距 */
+    }
+
+    /* 更改菜单栏文字大小，适配小屏幕 */
+    .menu-links a {
+        font-size: 5vw;  /* 让字体大小根据屏幕宽度变化 */
     }
 }
