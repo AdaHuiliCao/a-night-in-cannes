@@ -53,13 +53,14 @@ body {
 .content {
     flex: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; /* 设置竖直排列 */
+    justify-content: flex-start; /* 保证图片从顶部开始排列 */
+    align-items: center; /* 使图片居中 */
     background-color: #f4f4f4;
     padding: 0.2vw;
     margin-left: 13vw; /* 留出左侧导航栏空间 */
-    overflow-x: auto; /* 允许水平滑动 */
-    width: 100%;  /* 宽度自适应 */
+    overflow-x: auto; /* 允许水平滚动 */
+    width: 100%;
 }
 
 /* 默认设置 */
@@ -146,6 +147,14 @@ body {
     width: 100%; /* 宽度占满父容器 */
 }
 
+/* 添加的额外图片样式 */
+.additional-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-top: 20px;  /* 为图片添加间距 */
+}
 
 /* 媒体查询：适应小屏幕（例如手机） */
 @media (max-width: 900px) {
@@ -163,20 +172,33 @@ body {
 
     .small-screen-img {
         display: block;
-        position: absolute; /* 让图片相对于页面绝对定位 */
+        position: relative; /* 相对于其正常位置进行定位 */
         top: 80px; /* 为图片添加顶部间距，确保它不被导航栏遮挡 */
         left: 0;
         width: 100%; /* 占满屏幕宽度 */
+        max-height: 80vh;
         height: auto; /* 保持比例 */
         z-index: 1; /* 确保图片在导航栏后面或适当层级 */
         object-fit: contain; /* 保持图片比例 */
         overflow-x: auto; /* 允许水平滚动 */
+        margin-bottom: 80px;
     }
 
     /* 允许内容区域根据需要滑动 */
     .content {
         margin-left: 0; /* 移除原来给导航栏的左边距 */
         margin-top: 0; /* 确保内容不影响图片位置 */
+        padding: 0;
+    }
+
+    /* 使 additional-img 和 small-screen-img 竖直排列 */
+    .additional-img {
+        z-index: 1;
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        margin-top: 20px; /* 图片间距 */
     }
 
     .top-navbar {
