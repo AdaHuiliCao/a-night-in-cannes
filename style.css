@@ -153,16 +153,17 @@ body {
     }
 
     .small-screen-img {
-        display: block; /* 确保小屏幕下图片显示 */
+        display: block;
+        position: fixed; /* 改为固定定位，紧贴导航栏 */
+        top: 80px; /* 与导航栏高度一致 */
         width: 100%;
         height: auto;
-        margin-top: 0; /* 去掉顶部额外间距 */
+        z-index: 999; /* 确保图片显示在导航栏后面的内容上方 */
     }
-
 
     .content {
         margin-left: 0; /* 移除原来给导航栏的左边距 */
-        margin-top: 80px; /* 内容区下移，确保顶部导航栏不遮挡 */
+        margin-top: 0; /* 确保内容不影响图片位置 */
     }
 
     .top-navbar {
