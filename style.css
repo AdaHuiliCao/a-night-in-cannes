@@ -58,8 +58,9 @@ body {
     background-color: #f4f4f4;
     padding: 0.2vw;
     margin-left: 13vw; /* 留出左侧导航栏空间 */
+    margin-top: 60px; /* 确保顶部导航栏高度（如有固定高度的情况） */
     overflow-x: auto; /* 允许水平滑动 */
-    width: 100%;  /* 宽度自适应 */
+    width: calc(100% - 13vw);  /* 自动适应宽度，扣除导航栏 */
 }
 
 /* 默认设置 */
@@ -175,8 +176,8 @@ body {
 
     /* 允许内容区域根据需要滑动 */
     .content {
-        margin-left: 0; /* 移除原来给导航栏的左边距 */
-        margin-top: 0; /* 确保内容不影响图片位置 */
+        margin-left: 0; /* 小屏幕时取消左侧空隙 */
+        margin-top: 60px; /* 为顶部导航栏留出高度 */
     }
 
     .top-navbar {
