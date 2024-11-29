@@ -96,41 +96,41 @@ body {
 /* 确保 fullscreen-menu 在不同设备上始终居中 */
 .fullscreen-menu {
     position: fixed;
-    top: 80px; /* 距离导航栏的下方，导航栏高度假设为80px */
-    left: 50%; /* 水平居中 */
-    transform: translateX(-50%); /* 水平居中 */
-    width: 100%; /* 宽度为 100% */
-    height: calc(100vh - 80px); /* 减去导航栏的高度，避免完全遮盖 */
+    top: 0; /* 距离顶部 */
+    left: 0;
+    width: 100%; /* 菜单栏占满宽度 */
+    height: 100vh; /* 菜单栏占满屏幕高度 */
     background-color: #ffffff;
     z-index: 1000;
-    display: flex;
-    justify-content: center; /* 水平居中内容 */
-    align-items: center; /* 垂直居中内容 */
-    flex-direction: column; /* 让链接垂直排列 */
+    display: flex; /* 使用 flex 布局 */
+    justify-content: center; /* 垂直方向居中 */
+    align-items: center; /* 水平方向居中 */
+    flex-direction: column; /* 内容垂直排列 */
     padding: 20px;
-    opacity: 0; /* 初始时透明度为 0 */
-    pointer-events: none; /* 禁止在不可见时点击 */
+    opacity: 0;
+    pointer-events: none;
     transition: opacity 0.5s ease, pointer-events 0s linear 0.5s;
 }
 
-/* 显示菜单时 */
-.fullscreen-menu.show {
-    opacity: 1; /* 透明度设置为 1 */
-    pointer-events: auto; /* 允许点击 */
+/* 修改菜单栏中的链接样式 */
+.fullscreen-menu .menu-links {
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+    justify-content: center; /* 垂直居中 */
+    align-items: center; /* 水平居中 */
+    width: 100%; /* 占满宽度 */
+    height: 100%; /* 占满高度，确保可以精确定位 */
+    margin-top: -50px; /* 向上/向下微调文字位置 */
 }
 
-/* 更新全屏菜单中的链接样式 */
+/* 菜单文字的链接样式 */
 .fullscreen-menu .menu-links a {
-    font-family: "Source Serif 4", serif;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
-    font-size: 24px; /* 字体大小与导航栏一致 */
-    text-decoration: none;
+    font-family: "Source Serif 4", serif; /* 确保字体一致 */
+    font-size: 24px; /* 字体大小 */
     color: #252525;
-    margin: 10px 0;
+    margin: 10px 0; /* 上下间距 */
+    text-decoration: none;
     transition: color 0.3s;
-    text-align: center; /* 文字居中对齐 */
 }
 
 /* 菜单链接的悬停效果 */
@@ -194,18 +194,16 @@ body {
     }
 
     .fullscreen-menu {
-        top: 80px; /* 可以适当调整，避免导航栏遮挡 */
-        height: calc(100vh - 60px); /* 菜单高度为视口高度，减去导航栏的高度 */
+        top: 0; /* 小屏幕时，保持顶部开始 */
+        height: 100vh; /* 占满整个屏幕高度 */
     }
 
-    /* 适配小屏幕时增大字体和间距 */
+    .fullscreen-menu .menu-links {
+        margin-top: 0; /* 重置顶部偏移 */
+        justify-content: center; /* 垂直居中 */
+    }
+
     .fullscreen-menu .menu-links a {
-        font-size: 20px; /* 适配小屏幕 */
-        margin: 15px 0; /* 增加间距 */
-    }
-
-    /* 更改菜单栏文字大小，适配小屏幕 */
-    .menu-links a {
-        font-size: 5vw;  /* 让字体大小根据屏幕宽度变化 */
+        font-size: 6vw; /* 根据屏幕宽度动态调整字体大小 */
     }
 }
