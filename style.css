@@ -69,7 +69,7 @@ body {
     width: 97%;
     height: auto;
     object-fit: contain;
-    margin-top: 0; /* 确保图片紧贴导航栏 */
+    margin-top: 10px; /* 确保图片紧贴导航栏 */
     margin-bottom: 20px;
 }
 
@@ -141,6 +141,7 @@ body {
 }
 
 .fullscreen-menu .menu-links {
+    margin-bottom: 300px;
     display: flex;
     flex-direction: column; /* 垂直排列 */
     justify-content: center; /* 垂直居中 */
@@ -262,16 +263,6 @@ body {
         padding: 0;
     }
 
-    /* 使 additional-img 和 small-screen-img 竖直排列 */
-    .additional-img {
-        z-index: 1;
-        display: block;
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-        margin-top: 20px; /* 图片间距 */
-    }
-
     .top-navbar {
         display: flex;
         justify-content: flex-start;
@@ -294,7 +285,7 @@ body {
     /* 适配小屏幕时增大字体和间距 */
     .fullscreen-menu .menu-links a {
         font-size: 20px; /* 适配小屏幕 */
-        margin: 15px 0; /* 增加间距 */
+        margin: 30px 0; /* 增加间距 */
     }
 
     /* 更改菜单栏文字大小，适配小屏幕 */
