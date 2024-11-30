@@ -47,11 +47,14 @@
             <!-- 备用图片（小屏幕显示） -->
             <img class="small-screen-img" src="./img/poster.jpg" alt="Mobile Movie Poster">
 
-            <!-- 添加的额外图片 -->
-            <img class="additional-img" src="./img/1.jpg" alt="Second Image">
-            <img class="additional-img" src="./img/2.jpg" alt="Third Image">
-            <img class="additional-img" src="./img/3.jpg" alt="Fourth Image">
+            <!-- 图片和箭头 -->
+            <div class="img-wrapper">
 
+                <img id="current-img" class="additional-img" src="./img/1.jpg" alt="Second Image">
+                <!-- 左右箭头按钮 -->
+                <button id="prev-btn" class="nav-btn">&#8592;</button>
+                <button id="next-btn" class="nav-btn">&#8594;</button>
+            </div>
         </div>
     </div>
     <script src="index.js"></script>

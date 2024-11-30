@@ -68,3 +68,53 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    // 动态生成图片路径数组
+    const images = [];
+    for (let i = 1; i <= 31; i++) {
+        images.push(`./img/${i}.jpg`);
+    }
+
+    let currentIndex = 0;
+
+    const currentImg = document.getElementById("current-img");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+
+    // 更新图片
+    function updateImage(index) {
+        currentImg.src = images[index];
+    }
+
+    // 点击上一张
+    prevBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length; // 支持循环
+        updateImage(currentIndex);
+    });
+
+    // 点击下一张
+    nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % images.length; // 支持循环
+        updateImage(currentIndex);
+    });
+});
+
+window.addEventListener('load', function() {
+    var largeImg = document.querySelector('.large-screen-img');
+    var smallImg = document.querySelector('.small-screen-img');
+    var imgWrapper = document.querySelector('.img-wrapper');
+
+    // 获取图片的宽度和高度
+    var largeImgWidth = largeImg.clientWidth;
+    var largeImgHeight = largeImg.clientHeight;
+    var smallImgWidth = smallImg.clientWidth;
+    var smallImgHeight = smallImg.clientHeight;
+
+    // 选择较大的宽度和较大的高度来设置容器宽度和高度
+    var maxWidth = Math.max(largeImgWidth, smallImgWidth);
+    var maxHeight = Math.max(largeImgHeight, smallImgHeight);
+
+    // 设置 img-wrapper 容器的宽度和高度为最大宽度和最大高度
+    imgWrapper.style.width = maxWidth + 'px';
+    imgWrapper.style.height = maxHeight + 'px';
+});
