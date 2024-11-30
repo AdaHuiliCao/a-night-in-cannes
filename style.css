@@ -130,7 +130,7 @@ body {
     font-size: 24px; /* 字体大小与导航栏一致 */
     text-decoration: none;
     color: #252525;
-    margin: 10px 0;
+    /*margin: 10px 0;*/
     transition: color 0.3s;
     text-align: center; /* 文字居中对齐 */
 }
@@ -141,7 +141,7 @@ body {
 }
 
 .fullscreen-menu .menu-links {
-    margin-bottom: 300px;
+    margin-bottom: 100px;
     display: flex;
     flex-direction: column; /* 垂直排列 */
     justify-content: center; /* 垂直居中 */
@@ -285,11 +285,7 @@ body {
     /* 适配小屏幕时增大字体和间距 */
     .fullscreen-menu .menu-links a {
         font-size: 20px; /* 适配小屏幕 */
-        margin: 30px 0; /* 增加间距 */
+        margin: 2vh 0; /* 增加间距 */
     }
 
-    /* 更改菜单栏文字大小，适配小屏幕 */
-    .menu-links a {
-        font-size: 5vw;  /* 让字体大小根据屏幕宽度变化 */
-    }
 }
