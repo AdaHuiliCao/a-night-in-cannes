@@ -99,22 +99,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-window.addEventListener('load', function() {
-    var largeImg = document.querySelector('.large-screen-img');
-    var smallImg = document.querySelector('.small-screen-img');
-    var imgWrapper = document.querySelector('.img-wrapper');
-
-    // 获取图片的宽度和高度
-    var largeImgWidth = largeImg.clientWidth;
-    var largeImgHeight = largeImg.clientHeight;
-    var smallImgWidth = smallImg.clientWidth;
-    var smallImgHeight = smallImg.clientHeight;
-
-    // 选择较大的宽度和较大的高度来设置容器宽度和高度
-    var maxWidth = Math.max(largeImgWidth, smallImgWidth);
-    var maxHeight = Math.max(largeImgHeight, smallImgHeight);
-
-    // 设置 img-wrapper 容器的宽度和高度为最大宽度和最大高度
-    imgWrapper.style.width = maxWidth + 'px';
-    imgWrapper.style.height = maxHeight + 'px';
-});
